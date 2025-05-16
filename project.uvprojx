@@ -336,7 +336,7 @@
               <MiscControls>--no-multibyte-chars</MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Library;.\System;.\Hardware;.\bsp;.\app;.\module;.\Wj;.\Wj\app;.\Wj\bsp;.\Jia;.\Jia\My\ATK_IMU901;.\Jia\My\Delay;.\Jia\My\OLED;.\Jia\My\PS2;.\Jia\My\Slave1;.\Jia\My\UART;.\Jia\My;.\Jia\My\VL5300\My;.\Jia\My\VL5300\Other;.\Wj\module</IncludePath>
+              <IncludePath>.\Start;.\User;.\Library;.\System;.\Hardware;.\bsp;.\app;.\module;.\Wj;.\Wj\app;.\Wj\bsp;.\Jia;.\Jia\My\ATK_IMU901;.\Jia\My\Delay;.\Jia\My\OLED;.\Jia\My\PS2;.\Jia\My\Slave1;.\Jia\My\UART;.\Jia\My;.\Jia\My\VL5300\My;.\Jia\My\VL5300\Other;.\Wj\module;.\Jia\My\Shit</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -829,6 +829,16 @@
               <FileName>VI530x_System_Data.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Jia\My\VL5300\Other\VI530x_System_Data.h</FilePath>
+            </File>
+            <File>
+              <FileName>Fliter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Jia\My\Shit\Fliter.c</FilePath>
+            </File>
+            <File>
+              <FileName>Fliter_API.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Jia\My\Shit\Fliter_API.h</FilePath>
             </File>
           </Files>
         </Group>
