@@ -336,7 +336,7 @@
               <MiscControls>--no-multibyte-chars</MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Library;.\System;.\Hardware;.\bsp;.\app;.\module;.\Wj;.\Wj\app;.\Wj\bsp;.\Jia;.\Jia\My\ATK_IMU901;.\Jia\My\Delay;.\Jia\My\OLED;.\Jia\My\PS2;.\Jia\My\Slave1;.\Jia\My\UART;.\Jia\My</IncludePath>
+              <IncludePath>.\Start;.\User;.\Library;.\System;.\Hardware;.\bsp;.\app;.\module;.\Wj;.\Wj\app;.\Wj\bsp;.\Jia;.\Jia\My\ATK_IMU901;.\Jia\My\Delay;.\Jia\My\OLED;.\Jia\My\PS2;.\Jia\My\Slave1;.\Jia\My\UART;.\Jia\My;.\Jia\My\VL5300\My;.\Jia\My\VL5300\Other</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -731,26 +731,6 @@
               <FilePath>.\Jia\My\PS2\PS2_SPI_API.h</FilePath>
             </File>
             <File>
-              <FileName>PS2ToSlave1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Jia\My\Slave1\PS2ToSlave1.c</FilePath>
-            </File>
-            <File>
-              <FileName>PS2ToSlave1_API.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Jia\My\Slave1\PS2ToSlave1_API.h</FilePath>
-            </File>
-            <File>
-              <FileName>PS2ToSlave1_Demo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Jia\My\Slave1\PS2ToSlave1_Demo.c</FilePath>
-            </File>
-            <File>
-              <FileName>PS2ToSlave1_Demo.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Jia\My\Slave1\PS2ToSlave1_Demo.h</FilePath>
-            </File>
-            <File>
               <FileName>UART_API_z.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Jia\My\UART\UART_API_z.h</FilePath>
@@ -784,6 +764,71 @@
               <FileName>Incl_z.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Jia\My\Incl_z.h</FilePath>
+            </File>
+            <File>
+              <FileName>VL5300.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Jia\My\VL5300\My\VL5300.c</FilePath>
+            </File>
+            <File>
+              <FileName>VL5300_API.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Jia\My\VL5300\My\VL5300_API.h</FilePath>
+            </File>
+            <File>
+              <FileName>VL5300_Demo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Jia\My\VL5300\My\VL5300_Demo.c</FilePath>
+            </File>
+            <File>
+              <FileName>VL5300_I2C_API.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Jia\My\VL5300\My\VL5300_I2C_API.h</FilePath>
+            </File>
+            <File>
+              <FileName>atk_tof.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Jia\My\VL5300\Other\atk_tof.h</FilePath>
+            </File>
+            <File>
+              <FileName>VI530x_Algorithm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Jia\My\VL5300\Other\VI530x_Algorithm.c</FilePath>
+            </File>
+            <File>
+              <FileName>VI530x_Algorithm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Jia\My\VL5300\Other\VI530x_Algorithm.h</FilePath>
+            </File>
+            <File>
+              <FileName>VI530x_API.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Jia\My\VL5300\Other\VI530x_API.c</FilePath>
+            </File>
+            <File>
+              <FileName>VI530x_API.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Jia\My\VL5300\Other\VI530x_API.h</FilePath>
+            </File>
+            <File>
+              <FileName>VI530x_Firmware.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Jia\My\VL5300\Other\VI530x_Firmware.c</FilePath>
+            </File>
+            <File>
+              <FileName>VI530x_Firmware.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Jia\My\VL5300\Other\VI530x_Firmware.h</FilePath>
+            </File>
+            <File>
+              <FileName>VI530x_System_Data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Jia\My\VL5300\Other\VI530x_System_Data.c</FilePath>
+            </File>
+            <File>
+              <FileName>VI530x_System_Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Jia\My\VL5300\Other\VI530x_System_Data.h</FilePath>
             </File>
           </Files>
         </Group>

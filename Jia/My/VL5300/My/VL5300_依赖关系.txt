@@ -6,18 +6,7 @@
  */
 
 
-#ifndef __Incl_z_h
-#define __Incl_z_h
-
-
-#include "OLED_API.h"
-#include "UART_API_z.h"
+#include <stdint.h>
+#include "stm32f10x.h"
 #include "Delay_API_z.h"
-#include "PS2_API.h"
-#include "ATK_IMU901_API.h"
-#include "VL5300_API.h"
-
-
-
-
-#endif
+#include "OLED_API.h"
