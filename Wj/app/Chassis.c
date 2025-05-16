@@ -158,16 +158,7 @@ void Chassis_Init(void)
  * 注意：无
  **************************************
  */
-void Chassis_Task(void)
-{
-    Motor_Control(ChassisMotor.motor.motor_set[0].current_set, ChassisMotor.motor.motor_set[1].current_set, 
-                  ChassisMotor.motor.motor_set[2].current_set, ChassisMotor.motor.motor_set[3].current_set);
 
-     Data = Chassis_ReadData();
-     printf("d:%f, %f, %f, %d\n", Data->motor.motor_fdb[0].speed_fdb, Data->motor.motor_set[0].speed_set, Data->motor.motor_set[0].pid_speed, 
-                                  Data->motor.motor_set[0].current_set);
-//     printf("d:%f, %f, %f\n", Data->anglespeed_fdb, Data->anglespeed_set, Data->pid_anglespeed);
-}
 int flag;
 
 /**************************************
@@ -434,6 +425,19 @@ int myabs(int a)
 
 int textnum = 0;
 
+void Chassis_FSM(void)
+{
+    
+}
+
+void Chassis_Task(void)
+{
+    //  Data = Chassis_ReadData();
+    //  printf("d:%f, %f, %f, %d\n", Data->motor.motor_fdb[0].speed_fdb, Data->motor.motor_set[0].speed_set, Data->motor.motor_set[0].pid_speed, 
+    //                               Data->motor.motor_set[0].current_set);
+
+}
+
 
 
 /**************************************
@@ -445,23 +449,80 @@ int textnum = 0;
  */
 
 
-int textmode;
+int CNTmode = 0;
 void TIM6_IRQHandler(void)
 {    
     if(TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)
     {
+        CNTmode++;
         if(ChassisMotor.chassisVx != 0)
         {
+            //加速
             if(ChassisMotor.chassisVx >= ChassisMotor.chassisVx_calc && ChassisMotor.chassisVx > 0)
             {
-                // ChassisMotor.chassisVx_calc = 
+                ChassisMotor.chassisVx_calc = ChassisMotor.chassisVx_last + acc_vel *dt;
             }
+            else if(ChassisMotor.chassisVx <= ChassisMotor.chassisVx_calc && ChassisMotor.chassisVx < 0)
+            {
+                ChassisMotor.chassisVx_calc = ChassisMotor.chassisVx_last - acc_vel *dt;
+            }
+
+            //限幅
+            else if(ChassisMotor.chassisVx_calc >= (ChassisMotor.maxVx * ChassisMotor.speedtap[ChassisMotor.gear]))
+            {
+                ChassisMotor.chassisVx_calc = ChassisMotor.maxVx * ChassisMotor.speedtap[ChassisMotor.gear];
+            }
+            else if(ChassisMotor.chassisVx_calc <= -(ChassisMotor.maxVx * ChassisMotor.speedtap[ChassisMotor.gear]))
+            {
+                ChassisMotor.chassisVx_calc = -ChassisMotor.maxVx * ChassisMotor.speedtap[ChassisMotor.gear];
+            }
+
+            ChassisMotor.chassisVx_last = ChassisMotor.chassisVx_calc;
         }
+        else
+        {
+            ChassisMotor.chassisVx_calc = 0;
+        }
+
+        if(ChassisMotor.chassisVy != 0)
+        {
+            //加速
+            if(ChassisMotor.chassisVy >= ChassisMotor.chassisVy_calc && ChassisMotor.chassisVy > 0)
+            {
+                ChassisMotor.chassisVy_calc = ChassisMotor.chassisVy_last + acc_vel *dt;
+            }
+            else if(ChassisMotor.chassisVy <= ChassisMotor.chassisVy_calc && ChassisMotor.chassisVy < 0)
+            {
+                ChassisMotor.chassisVy_calc = ChassisMotor.chassisVy_last - acc_vel *dt;
+            }
+
+            //限幅
+            else if(ChassisMotor.chassisVy_calc >= (ChassisMotor.maxVy * ChassisMotor.speedtap[ChassisMotor.gear]))
+            {
+                ChassisMotor.chassisVy_calc = ChassisMotor.maxVy * ChassisMotor.speedtap[ChassisMotor.gear];
+            }
+            
+            else if(ChassisMotor.chassisVy_calc <= -(ChassisMotor.maxVy * ChassisMotor.speedtap[ChassisMotor.gear]))
+            {
+                ChassisMotor.chassisVy_calc = -ChassisMotor.maxVy * ChassisMotor.speedtap[ChassisMotor.gear];
+            }
+
+            ChassisMotor.chassisVy_last = ChassisMotor.chassisVy_calc;
+        }
+        else
+        {
+            ChassisMotor.chassisVy_calc = 0;
+        }
+
+        ChassisCalculate(ChassisMotor.chassisVx_calc, ChassisMotor.chassisVy_calc, &ChassisMotor);
+        Motor_Turn(&ChassisMotor);
         Chassis_fdb(&ChassisMotor);
-        Chassis_PIDCalc(&ChassisMotor);
+        if(CNTmode > 5)
+        {
+            Chassis_PIDCalc(&ChassisMotor);
+        }       
         Motor_Control(ChassisMotor.motor.motor_set[0].current_set, ChassisMotor.motor.motor_set[1].current_set, 
-                        ChassisMotor.motor.motor_set[2].current_set, ChassisMotor.motor.motor_set[3].current_set); 
-        textmode = 1;            
+                        ChassisMotor.motor.motor_set[2].current_set, ChassisMotor.motor.motor_set[3].current_set);           
     }
     TIM_ClearITPendingBit(TIM6,TIM_IT_Update);
 }

@@ -44,6 +44,9 @@ typedef struct
     float chassisVx_calc;
     float chassisVy_calc;
 
+    float chassisVx_last;
+    float chassisVy_last;
+
     float anglespeed_set;
     float pid_anglespeed;
     float maxRpm_Left[4];
@@ -56,6 +59,47 @@ typedef struct
     float anglespeed_fdb;
     int ctrl_mode;
 }ChassisMotor_t;
+
+
+/*      状   态   机      */
+
+typedef enum FSM_E
+{
+    GAME_START = 1,
+    GAME_OVER,
+    STOP_WAIT,          //等待状态
+
+    LED1_ON,            //识别物料的亮灯
+    LED1_OFF,
+    LED2_ON,
+    LED2_OFF,
+
+    PATH1,              //对应不同物料的路径
+    PATH2,          
+    Forward_PATH,
+    Left_PATH,
+    Right_PATH,
+    Backward_PATH,
+}FSM_E;
+
+typedef enum SERVO_E
+{
+    Servo1_OPEN,        //舵机状态
+    Servo1_CLOSE,
+    Servo2_OPEN,
+    Servo2_CLOSE,
+    ALL_CLOSE,
+}SERVO_E;
+
+typedef enum PI_E
+{
+    FOOD1,
+    FOOD2,
+    PI_ISABLE,
+    
+    Read_RED_Light,     //红绿灯
+    Read_Green_Light,
+}PI_E;
 
 
 

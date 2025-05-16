@@ -861,6 +861,16 @@
               <FileType>5</FileType>
               <FilePath>.\Wj\bsp\bsp_motorTIM.h</FilePath>
             </File>
+            <File>
+              <FileName>Servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Wj\module\Servo.c</FilePath>
+            </File>
+            <File>
+              <FileName>Servo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Wj\module\Servo.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
