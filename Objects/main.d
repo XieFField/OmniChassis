@@ -42,9 +42,7 @@
 .\objects\main.o: .\Jia\My\PS2\PS2_Demo.h
 .\objects\main.o: .\Jia\My\PS2\PS2_Def.h
 .\objects\main.o: .\Jia\My\PS2\PS2_Func.h
-.\objects\main.o: .\Jia\My\Slave1/PS2ToSlave1_API.h
-.\objects\main.o: .\Jia\My\Slave1/PS2ToSlave1_Demo.h
-.\objects\main.o: .\Jia\My\ATK_IMU901/ATK_IMU901_API.h
-.\objects\main.o: .\Jia\My\MPU6050/MPU6050_API.h
+.\objects\main.o: .\Jia\My\ATK_IMU901\ATK_IMU901_API.h
+.\objects\main.o: .\Jia\My\VL5300\My\VL5300_API.h
 .\objects\main.o: .\Wj\app\Chassis.h
 .\objects\main.o: .\Wj\bsp\bsp_motorTIM.h

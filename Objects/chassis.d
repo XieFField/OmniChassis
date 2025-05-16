@@ -43,10 +43,8 @@
 .\objects\chassis.o: .\Jia\My\PS2\PS2_Demo.h
 .\objects\chassis.o: .\Jia\My\PS2\PS2_Def.h
 .\objects\chassis.o: .\Jia\My\PS2\PS2_Func.h
-.\objects\chassis.o: .\Jia\My\Slave1/PS2ToSlave1_API.h
-.\objects\chassis.o: .\Jia\My\Slave1/PS2ToSlave1_Demo.h
-.\objects\chassis.o: .\Jia\My\ATK_IMU901/ATK_IMU901_API.h
-.\objects\chassis.o: .\Jia\My\MPU6050/MPU6050_API.h
+.\objects\chassis.o: .\Jia\My\ATK_IMU901\ATK_IMU901_API.h
+.\objects\chassis.o: .\Jia\My\VL5300\My\VL5300_API.h
 .\objects\chassis.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\chassis.o: Wj\app\PID.h
 .\objects\chassis.o: .\Wj\bsp\bsp_motorTIM.h

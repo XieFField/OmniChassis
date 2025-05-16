@@ -9,6 +9,8 @@
 
 int main(void)
 {
+	VL5300_Demo();
+
     // PS2_Demo();
 //    PS2ToSlave1_Demo();
     

@@ -731,26 +731,6 @@
               <FilePath>.\Jia\My\PS2\PS2_SPI_API.h</FilePath>
             </File>
             <File>
-              <FileName>PS2ToSlave1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Jia\My\Slave1\PS2ToSlave1.c</FilePath>
-            </File>
-            <File>
-              <FileName>PS2ToSlave1_API.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Jia\My\Slave1\PS2ToSlave1_API.h</FilePath>
-            </File>
-            <File>
-              <FileName>PS2ToSlave1_Demo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Jia\My\Slave1\PS2ToSlave1_Demo.c</FilePath>
-            </File>
-            <File>
-              <FileName>PS2ToSlave1_Demo.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Jia\My\Slave1\PS2ToSlave1_Demo.h</FilePath>
-            </File>
-            <File>
               <FileName>UART_API_z.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Jia\My\UART\UART_API_z.h</FilePath>

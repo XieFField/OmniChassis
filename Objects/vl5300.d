@@ -1,7 +1,5 @@
 .\objects\vl5300.o: Jia\My\VL5300\My\VL5300.c
 .\objects\vl5300.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\vl5300.o: .\Jia\My\Delay\Delay_API_z.h
-.\objects\vl5300.o: Jia\My\VL5300\My\VL5300_I2C_API.h
 .\objects\vl5300.o: .\Start\stm32f10x.h
 .\objects\vl5300.o: .\Start\core_cm3.h
 .\objects\vl5300.o: .\Start\system_stm32f10x.h
@@ -30,6 +28,8 @@
 .\objects\vl5300.o: .\Library\stm32f10x_usart.h
 .\objects\vl5300.o: .\Library\stm32f10x_wwdg.h
 .\objects\vl5300.o: .\Library\misc.h
+.\objects\vl5300.o: .\Jia\My\Delay\Delay_API_z.h
+.\objects\vl5300.o: Jia\My\VL5300\My\VL5300_I2C_API.h
 .\objects\vl5300.o: Jia\My\VL5300\My\VL5300_API.h
 .\objects\vl5300.o: .\Jia\My\VL5300\Other\VI530x_API.h
 .\objects\vl5300.o: .\Jia\My\VL5300\Other\atk_tof.h

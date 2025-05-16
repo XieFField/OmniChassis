@@ -148,7 +148,7 @@ void Chassis_Init(void)
     TIM6_Init(T);
     Chassis_GPIOInit(&ChassisMotor);
     PS2_Init();
-    PS2ToSlave1_Init();
+//    PS2ToSlave1_Init();
 }
 
 /**************************************

@@ -7,6 +7,7 @@
 
 
 #include <stdint.h>
+#include "stm32f10x.h"
 #include "Delay_API_z.h"
 #include "VL5300_I2C_API.h"
 #include "VL5300_API.h"
