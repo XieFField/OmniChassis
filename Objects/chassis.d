@@ -52,4 +52,3 @@
 .\objects\chassis.o: .\Wj\bsp\bsp_motorTIM.h
 .\objects\chassis.o: .\Wj\bsp\bsp_ChassisEncoder.h
 .\objects\chassis.o: .\System\Delay.h
-.\objects\chassis.o: Wj\app\NAVI.h

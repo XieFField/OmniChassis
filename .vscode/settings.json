@@ -61,5 +61,6 @@
     "limits": "c",
     "bsp_motortim.h": "c"
   },
-  "C_Cpp.default.compilerPath": "c:\\MinGW\\mingw64\\bin\\gcc.exe"
+  "C_Cpp.default.compilerPath": "c:\\MinGW\\mingw64\\bin\\gcc.exe",
+  "C_Cpp.errorSquiggles": "enabled"
 }

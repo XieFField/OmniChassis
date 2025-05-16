@@ -1009,7 +1009,7 @@ I (.\Jia\My\Slave1/PS2ToSlave1_API.h)(0x6803185C)
 I (.\Jia\My\Slave1/PS2ToSlave1_Demo.h)(0x6803185C)
 I (.\Jia\My\ATK_IMU901/ATK_IMU901_API.h)(0x6803185B)
 I (.\Jia\My\MPU6050/MPU6050_API.h)(0x6803185C)
-I (.\Wj\app\Chassis.h)(0x67FF6858)
+I (.\Wj\app\Chassis.h)(0x6826F1E6)
 I (.\Wj\bsp\bsp_motorTIM.h)(0x6807AC3A)
 F (.\User\stm32f10x_conf.h)(0x4D99A59E)()
 F (.\User\stm32f10x_it.c)(0x4D99A59E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\User -I .\Library -I .\System -I .\Hardware -I .\bsp -I .\app -I .\module -I .\Wj -I .\Wj\app -I .\Wj\bsp -I .\Jia -I .\Jia\My\ATK_IMU901 -I .\Jia\My\Delay -I .\Jia\My\OLED -I .\Jia\My\PS2 -I .\Jia\My\Slave1 -I .\Jia\My\UART -I .\Jia\My --no-multibyte-chars-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f10x_it.o --omf_browse .\objects\stm32f10x_it.crf --depend .\objects\stm32f10x_it.d)
@@ -1043,7 +1043,7 @@ I (.\Library\stm32f10x_usart.h)(0x4D783BB4)
 I (.\Library\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Library\misc.h)(0x4D783BB4)
 F (.\User\stm32f10x_it.h)(0x4D99A59E)()
-F (.\Wj\app\Chassis.c)(0x680872CE)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\User -I .\Library -I .\System -I .\Hardware -I .\bsp -I .\app -I .\module -I .\Wj -I .\Wj\app -I .\Wj\bsp -I .\Jia -I .\Jia\My\ATK_IMU901 -I .\Jia\My\Delay -I .\Jia\My\OLED -I .\Jia\My\PS2 -I .\Jia\My\Slave1 -I .\Jia\My\UART -I .\Jia\My --no-multibyte-chars-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\chassis.o --omf_browse .\objects\chassis.crf --depend .\objects\chassis.d)
+F (.\Wj\app\Chassis.c)(0x6826F21E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\User -I .\Library -I .\System -I .\Hardware -I .\bsp -I .\app -I .\module -I .\Wj -I .\Wj\app -I .\Wj\bsp -I .\Jia -I .\Jia\My\ATK_IMU901 -I .\Jia\My\Delay -I .\Jia\My\OLED -I .\Jia\My\PS2 -I .\Jia\My\Slave1 -I .\Jia\My\UART -I .\Jia\My --no-multibyte-chars-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\chassis.o --omf_browse .\objects\chassis.crf --depend .\objects\chassis.d)
 I (.\Start\stm32f10x.h)(0x4D783CB4)
 I (.\Start\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -1072,7 +1072,7 @@ I (.\Library\stm32f10x_tim.h)(0x67DECA89)
 I (.\Library\stm32f10x_usart.h)(0x4D783BB4)
 I (.\Library\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Library\misc.h)(0x4D783BB4)
-I (Wj\app\Chassis.h)(0x67FF6858)
+I (Wj\app\Chassis.h)(0x6826F1E6)
 I (.\Jia\My\Incl_z.h)(0x6803185B)
 I (.\Jia\My\OLED\OLED_API.h)(0x6803185C)
 I (.\Jia\My\OLED\OLED_Func.h)(0x6803185C)
@@ -1096,8 +1096,7 @@ I (Wj\app\PID.h)(0x67BD8836)
 I (.\Wj\bsp\bsp_motorTIM.h)(0x6807AC3A)
 I (.\Wj\bsp\bsp_ChassisEncoder.h)(0x67F0E7D2)
 I (.\System\Delay.h)(0x6130920E)
-I (Wj\app\NAVI.h)(0x67FA60F3)
-F (.\Wj\app\Chassis.h)(0x67FF6858)()
+F (.\Wj\app\Chassis.h)(0x6826F1E6)()
 F (.\Wj\app\PID.c)(0x67DFCF72)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\User -I .\Library -I .\System -I .\Hardware -I .\bsp -I .\app -I .\module -I .\Wj -I .\Wj\app -I .\Wj\bsp -I .\Jia -I .\Jia\My\ATK_IMU901 -I .\Jia\My\Delay -I .\Jia\My\OLED -I .\Jia\My\PS2 -I .\Jia\My\Slave1 -I .\Jia\My\UART -I .\Jia\My --no-multibyte-chars-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\pid.o --omf_browse .\objects\pid.crf --depend .\objects\pid.d)
 I (.\Start\stm32f10x.h)(0x4D783CB4)
 I (.\Start\core_cm3.h)(0x4D523B58)
