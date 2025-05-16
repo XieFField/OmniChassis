@@ -143,7 +143,6 @@ void Chassis_Init(void)
     ChassisMotor.chassisVy_calc = 0;
 
     MotorPID_Init();
-    GyroCail_PIDInit();
     ChassisPWM_Init();
     bsp_ChassisEncoder_Init();
     TIM6_Init(T);
@@ -161,7 +160,6 @@ void Chassis_Init(void)
  */
 void Chassis_Task(void)
 {
-    Chassis_ModeSet(); 
     Motor_Control(ChassisMotor.motor.motor_set[0].current_set, ChassisMotor.motor.motor_set[1].current_set, 
                   ChassisMotor.motor.motor_set[2].current_set, ChassisMotor.motor.motor_set[3].current_set);
 
