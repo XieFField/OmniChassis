@@ -135,8 +135,14 @@ void Chassis_Init(void)
     ChassisMotor.speedtap[1] = 0.5;
     ChassisMotor.speedtap[2] = 1;
     ChassisMotor.pidMode = PID_POSITION;
+
+    ChassisMotor.chassisVx = 0;
+    ChassisMotor.chassisVy = 0;
+
+    ChassisMotor.chassisVx_calc = 0;
+    ChassisMotor.chassisVy_calc = 0;
+
     MotorPID_Init();
-    GyroCail_PIDInit();
     ChassisPWM_Init();
     bsp_ChassisEncoder_Init();
     TIM6_Init(T);
@@ -154,7 +160,6 @@ void Chassis_Init(void)
  */
 void Chassis_Task(void)
 {
-    Chassis_ModeSet(); 
     Motor_Control(ChassisMotor.motor.motor_set[0].current_set, ChassisMotor.motor.motor_set[1].current_set, 
                   ChassisMotor.motor.motor_set[2].current_set, ChassisMotor.motor.motor_set[3].current_set);
 
@@ -429,6 +434,8 @@ int myabs(int a)
 
 int textnum = 0;
 
+
+
 /**************************************
  * 函数：中断读取编码器
  * 参数：自己看
@@ -436,17 +443,25 @@ int textnum = 0;
  * 注意：无
  **************************************
  */
+
+
 int textmode;
 void TIM6_IRQHandler(void)
 {    
     if(TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)
     {
-            Chassis_fdb(&ChassisMotor);
-            Chassis_PIDCalc(&ChassisMotor);
-//            GyroCail_PIDCalc(&ChassisMotor);
-            Motor_Control(ChassisMotor.motor.motor_set[0].current_set, ChassisMotor.motor.motor_set[1].current_set, 
-                          ChassisMotor.motor.motor_set[2].current_set, ChassisMotor.motor.motor_set[3].current_set); 
-            textmode = 1;            
+        if(ChassisMotor.chassisVx != 0)
+        {
+            if(ChassisMotor.chassisVx >= ChassisMotor.chassisVx_calc && ChassisMotor.chassisVx > 0)
+            {
+                // ChassisMotor.chassisVx_calc = 
+            }
+        }
+        Chassis_fdb(&ChassisMotor);
+        Chassis_PIDCalc(&ChassisMotor);
+        Motor_Control(ChassisMotor.motor.motor_set[0].current_set, ChassisMotor.motor.motor_set[1].current_set, 
+                        ChassisMotor.motor.motor_set[2].current_set, ChassisMotor.motor.motor_set[3].current_set); 
+        textmode = 1;            
     }
     TIM_ClearITPendingBit(TIM6,TIM_IT_Update);
 }
