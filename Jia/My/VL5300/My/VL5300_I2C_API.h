@@ -21,11 +21,11 @@
 
 #define RCC_SCL					RCC_APB2Periph_GPIOB		// SCL
 #define GPIOx_SCL				GPIOB
-#define GPIO_Pinx_SCL			GPIO_Pin_8
+#define GPIO_Pinx_SCL			GPIO_Pin_1
 
 #define RCC_SDA					RCC_APB2Periph_GPIOB		// SDA
 #define GPIOx_SDA				GPIOB
-#define GPIO_Pinx_SDA			GPIO_Pin_9
+#define GPIO_Pinx_SDA			GPIO_Pin_0
 
 /* ！！！！！！！！！！！！！！！！！！！！！！！！*/
 

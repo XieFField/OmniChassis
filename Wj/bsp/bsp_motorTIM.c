@@ -118,24 +118,6 @@ void ChassisMotor4_SetCompare(uint16_t Compare)
     TIM_SetCompare4(PWM_TIM, Compare);
 }
 
-void PA12_Init(void)
-{
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
 
-    GPIO_InitTypeDef PWM_InitStructure;
-    PWM_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-    PWM_InitStructure.GPIO_Pin = GPIO_Pin_11;
-    PWM_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    
-    GPIO_Init(GPIOA, &PWM_InitStructure);
-    
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-    
-    PWM_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-    PWM_InitStructure.GPIO_Pin = GPIO_Pin_2;
-    PWM_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    
-    GPIO_Init(GPIOB, &PWM_InitStructure);
-}
 
 

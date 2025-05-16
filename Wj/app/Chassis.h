@@ -95,6 +95,12 @@ typedef enum SERVO_E
     ALL_CLOSE,
 }SERVO_E;
 
+typedef enum PATH_E
+{
+    THE_PATH_ONE,
+    THE_PATH_TWO,
+}PATH_E;
+
 typedef enum PI_E
 {
     FOOD1,

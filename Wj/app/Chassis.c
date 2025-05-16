@@ -13,13 +13,19 @@
 #include "bsp_motorTIM.h"
 #include "bsp_ChassisEncoder.h"
 #include "Incl_z.h"
-#include "Delay.h"
 #include <stdio.h>
 
 
 ChassisMotor_t          ChassisMotor;        //电机参数结构体
 ChassisMotor_t* Data;
 VL5300_DataSetTypeDef *Laser_Data;
+
+FSM_E chassis_ctrl;
+SERVO_E servo_ctrl;
+PATH_E path_ctrl;
+
+MorseCode_T code_read;
+
 pid_type_def Chassis_PID[5];
 int myabs(int a);
 ChassisMotor_t* Chassis_ReadData(void);
@@ -151,7 +157,7 @@ void Chassis_Init(void)
     MotorPID_Init();
     ChassisPWM_Init();
     bsp_ChassisEncoder_Init();
-    TIM6_Init(T);
+    TIM5_Init();
     VL5300_Init();
     Chassis_GPIOInit(&ChassisMotor);
     PS2_Init();
@@ -434,18 +440,61 @@ int textnum = 0;
 
 //状态机
 
-FSM_E chassis_ctrl;
-
+/*
 void Chassis_FSM(void)
 {
-    
-}
+    chassis_ctrl = STOP_WAIT;
+
+    Delay_s(3);
+    chassis_ctrl = Forward_PATH;
+    if(MedianFilter1() <= 420)
+    {
+        chassis_ctrl = STOP_WAIT;
+        Delay_ms(1000);
+        if(servo_ctrl == Servo1_OPEN)
+        {
+//            Servo1_OPEN;
+        }
+        else if(servo_ctrl == Servo2_OPEN)
+        {
+//            Servo2_OPEN;
+        }
+        
+        chassis_ctrl = Forward_PATH;
+        if(MedianFilter1() <= 50)
+        {
+            chassis_ctrl = STOP_WAIT;
+            Delay_ms(500);
+            if(path_ctrl == THE_PATH_ONE)
+            {
+                chassis_ctrl = Left_PATH;
+                if(MedianFilter2() <= 50)
+                {
+                    chassis_ctrl = STOP_WAIT;
+                    Delay_s(3);
+                    chassis_ctrl = Right_PATH;
+                    if(MedianFilter3() <= 1050)
+                    {
+                        chassis_ctrl = STOP_WAIT;
+                        Delay_ms(1000);
+                        chassis_ctrl = Backward_PATH;
+                        if(MedianFilter1() <= 2120)
+                        {
+                            chassis_ctrl = STOP_WAIT;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}*/
 
 void Chassis_FSM_TEST(void)
 {
 //    Laser_Data = VL5300_GetDataSetPoint();
     chassis_ctrl = STOP_WAIT;
-    Delay_s(3);
+    Delay_s(2);
     chassis_ctrl = Forward_PATH;
     if(MedianFilter1() <= 420)
     {
@@ -476,6 +525,7 @@ void Chassis_FSM_TEST(void)
         }
     }
 }
+
 
 void Chassis_Task(void)
 {
@@ -523,12 +573,36 @@ void Chassis_Task(void)
 
 
 int CNTmode = 0;
-void TIM6_IRQHandler(void)
+void TIM5_IRQHandler(void)
 {    
-    if(TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)
+    if(TIM_GetITStatus(TIM5, TIM_IT_Update) != RESET)
     {
         CNTmode++;
         Chassis_Task();
+        MorCode_Read(&code_read);
+            
+        if(code_read.code[0] == 1 && code_read.code[1] == 1 && code_read.code[2] == 1)
+        {
+            servo_ctrl = Servo1_OPEN;
+            path_ctrl = THE_PATH_ONE;
+        }
+        else if(code_read.code[0] == 1 && code_read.code[1] == 1 && code_read.code[2] == 0)
+        {
+            servo_ctrl = Servo1_OPEN;
+            path_ctrl = THE_PATH_TWO;
+        }
+
+        if(code_read.code[0] == 1 && code_read.code[1] == 0 && code_read.code[2] == 1)
+        {
+            servo_ctrl = Servo2_OPEN;
+            path_ctrl = THE_PATH_ONE;
+        }
+        else if(code_read.code[0] == 1 && code_read.code[1] == 0 && code_read.code[2] == 0)
+        {
+            servo_ctrl = Servo2_OPEN;
+            path_ctrl = THE_PATH_TWO;
+        }
+
         if(ChassisMotor.chassisVx != 0)
         {
             //加速
@@ -598,5 +672,5 @@ void TIM6_IRQHandler(void)
         Motor_Control(ChassisMotor.motor.motor_set[0].current_set, ChassisMotor.motor.motor_set[1].current_set, 
                         ChassisMotor.motor.motor_set[2].current_set, ChassisMotor.motor.motor_set[3].current_set);           
     }
-    TIM_ClearITPendingBit(TIM6,TIM_IT_Update);
+    TIM_ClearITPendingBit(TIM5,TIM_IT_Update);
 }

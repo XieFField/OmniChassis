@@ -258,56 +258,62 @@ int16_t Chassis_ReadEncoder(uint8_t TIMX)
     return EncoderData;
 }
 
-void TIM6_Init(uint8_t arr) 
-{
-    // 使能TIM6时钟
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);
-
-    // 配置时基参数（示例：1kHz中断）
-    TIM_TimeBaseInitTypeDef TIM_TimeBaseStruct;
-    TIM_TimeBaseStruct.TIM_Prescaler = 7200 - 1;     // 72MHz → 10kHz
-    TIM_TimeBaseStruct.TIM_Period = arr - 1;      // 1kHz中断
-    TIM_TimeBaseStruct.TIM_CounterMode = TIM_CounterMode_Up;
-    TIM_TimeBaseStruct.TIM_ClockDivision = TIM_CKD_DIV1;
-    TIM_TimeBaseInit(TIM6, &TIM_TimeBaseStruct);
-
-    // 使能更新中断
-    TIM_ITConfig(TIM6, TIM_IT_Update, ENABLE);
-
-    // 配置NVIC
-    NVIC_InitTypeDef NVIC_InitStruct;
-    NVIC_InitStruct.NVIC_IRQChannel = TIM6_IRQn;
-    NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0; // 根据需求调整优先级
-    NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
-    NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStruct);
-
-    // 启动TIM6
-    TIM_Cmd(TIM6, ENABLE);
-}
-
-//void TIM5_Init(u16 arr, u16 psc)
+//void TIM6_Init(uint8_t arr) 
 //{
-//    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
-//    
-//    TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStruct;
-//	TIM_TimeBaseInitStruct.TIM_ClockDivision = 0;
-//	TIM_TimeBaseInitStruct.TIM_CounterMode = TIM_CounterMode_Up;
-//	TIM_TimeBaseInitStruct.TIM_Period = arr;        //预装载值
-//	TIM_TimeBaseInitStruct.TIM_Prescaler = psc;     //预分频系数
+//    // 使能TIM6时钟
+//    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);
+
+//    // 配置时基参数（示例：1kHz中断）
+//    TIM_TimeBaseInitTypeDef TIM_TimeBaseStruct;
+//    TIM_TimeBaseStruct.TIM_Prescaler = 7200 - 1;     // 72MHz → 10kHz
+//    TIM_TimeBaseStruct.TIM_Period = arr - 1;      // 1kHz中断
+//    TIM_TimeBaseStruct.TIM_CounterMode = TIM_CounterMode_Up;
+//    TIM_TimeBaseStruct.TIM_ClockDivision = TIM_CKD_DIV1;
+//    TIM_TimeBaseInit(TIM7, &TIM_TimeBaseStruct);
+
+
 //	
-//	TIM_TimeBaseInit(TIM5,&TIM_TimeBaseInitStruct); //初始化定时器，配置ARR,PSC
-//    
-//    TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE);
-//    
+//	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+
+//    // 配置NVIC
 //    NVIC_InitTypeDef NVIC_InitStruct;
-//    
-//    NVIC_InitStruct.NVIC_IRQChannel = TIM5_IRQn;
-//	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
-//	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 1;
-//	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
+//    NVIC_InitStruct.NVIC_IRQChannel = TIM6_IRQn;
+//    NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0; // 根据需求调整优先级
+//    NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
+//    NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+//    NVIC_Init(&NVIC_InitStruct);
 //	
-//	NVIC_Init(&NVIC_InitStruct);//配置NVIC
-//    
-//    TIM_Cmd(TIM5,ENABLE);
+//	TIM_ClearITPendingBit(TIM6,TIM_IT_Update);
+
+//    // 启动TIM6
+//    TIM_Cmd(TIM6, ENABLE);
+//	
+//	    // 使能更新中断
+//    TIM_ITConfig(TIM6, TIM_IT_Update, ENABLE);
 //}
+
+void TIM5_Init(void)
+{
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
+    
+    TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStruct;
+	TIM_TimeBaseInitStruct.TIM_ClockDivision = 0;
+	TIM_TimeBaseInitStruct.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInitStruct.TIM_Period = 7200-1;        //预装载值
+	TIM_TimeBaseInitStruct.TIM_Prescaler = 100-1;     //预分频系数
+	
+	TIM_TimeBaseInit(TIM5,&TIM_TimeBaseInitStruct); //初始化定时器，配置ARR,PSC
+    
+    TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE);
+    
+    NVIC_InitTypeDef NVIC_InitStruct;
+    
+    NVIC_InitStruct.NVIC_IRQChannel = TIM5_IRQn;
+	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 1;
+	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
+	
+	NVIC_Init(&NVIC_InitStruct);//配置NVIC
+    
+    TIM_Cmd(TIM5,ENABLE);
+}

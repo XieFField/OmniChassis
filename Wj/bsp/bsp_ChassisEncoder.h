@@ -46,7 +46,7 @@
 void bsp_ChassisEncoder_Init(void);
 int16_t Chassis_ReadEncoder(uint8_t TIMX);
 void TIM6_Init(uint8_t arr);
-void TIM5_Init(u16 arr, u16 psc);
+void TIM5_Init(void);
 
 //int16_t Motor1_coder(void);
 

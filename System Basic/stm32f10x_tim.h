@@ -128,7 +128,7 @@ typedef struct
                                   This parameter can be a value of @ref TIM_Input_Capture_Prescaler */
 
   uint16_t TIM_ICFilter;     /*!< Specifies the input capture filter.
-                                  This parameter can be a number between 0x0 and  */
+                                  This parameter can be a number between 0x0 and 0xF */
 } TIM_ICInitTypeDef;
 
 /** 
