@@ -336,7 +336,7 @@
               <MiscControls>--no-multibyte-chars</MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Library;.\System;.\Hardware;.\bsp;.\app;.\module;.\Wj;.\Wj\app;.\Wj\bsp;.\Jia;.\Jia\My\ATK_IMU901;.\Jia\My\Delay;.\Jia\My\OLED;.\Jia\My\PS2;.\Jia\My\Slave1;.\Jia\My\UART;.\Jia\My;.\Jia\My\VL5300\My;.\Jia\My\VL5300\Other</IncludePath>
+              <IncludePath>.\Start;.\User;.\Library;.\System;.\Hardware;.\bsp;.\app;.\module;.\Wj;.\Wj\app;.\Wj\bsp;.\Jia;.\Jia\My\ATK_IMU901;.\Jia\My\Delay;.\Jia\My\OLED;.\Jia\My\PS2;.\Jia\My\Slave1;.\Jia\My\UART;.\Jia\My;.\Jia\My\VL5300\My;.\Jia\My\VL5300\Other;.\Wj\module</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

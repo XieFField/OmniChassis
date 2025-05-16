@@ -1,7 +1,7 @@
 .\objects\servo.o: Wj\module\Servo.c
 .\objects\servo.o: .\Start\stm32f10x.h
 .\objects\servo.o: .\Start\core_cm3.h
-.\objects\servo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\servo.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\servo.o: .\Start\system_stm32f10x.h
 .\objects\servo.o: .\User\stm32f10x_conf.h
 .\objects\servo.o: .\Library\stm32f10x_adc.h
