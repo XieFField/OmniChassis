@@ -1,5 +1,5 @@
 .\objects\oled.o: Jia\My\OLED\OLED.c
-.\objects\oled.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\oled.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\oled.o: Jia\My\OLED\OLED_I2C_API.h
 .\objects\oled.o: .\Start\stm32f10x.h
 .\objects\oled.o: .\Start\core_cm3.h

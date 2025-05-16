@@ -1,5 +1,5 @@
 .\objects\ps2.o: Jia\My\PS2\PS2.c
-.\objects\ps2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\ps2.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\ps2.o: Jia\My\PS2\PS2_Def.h
 .\objects\ps2.o: Jia\My\PS2\PS2_SPI_API.h
 .\objects\ps2.o: .\Start\stm32f10x.h

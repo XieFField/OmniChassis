@@ -1,7 +1,7 @@
 .\objects\pid.o: Wj\app\PID.c
 .\objects\pid.o: .\Start\stm32f10x.h
 .\objects\pid.o: .\Start\core_cm3.h
-.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\pid.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\pid.o: .\Start\system_stm32f10x.h
 .\objects\pid.o: .\User\stm32f10x_conf.h
 .\objects\pid.o: .\Library\stm32f10x_adc.h
@@ -29,4 +29,4 @@
 .\objects\pid.o: .\Library\stm32f10x_wwdg.h
 .\objects\pid.o: .\Library\misc.h
 .\objects\pid.o: Wj\app\PID.h
-.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\pid.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

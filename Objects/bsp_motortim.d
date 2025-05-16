@@ -1,7 +1,7 @@
 .\objects\bsp_motortim.o: Wj\bsp\bsp_motorTIM.c
 .\objects\bsp_motortim.o: .\Start\stm32f10x.h
 .\objects\bsp_motortim.o: .\Start\core_cm3.h
-.\objects\bsp_motortim.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_motortim.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\bsp_motortim.o: .\Start\system_stm32f10x.h
 .\objects\bsp_motortim.o: .\User\stm32f10x_conf.h
 .\objects\bsp_motortim.o: .\Library\stm32f10x_adc.h

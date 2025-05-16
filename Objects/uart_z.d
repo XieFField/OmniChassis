@@ -1,8 +1,8 @@
 .\objects\uart_z.o: Jia\My\UART\UART_z.c
-.\objects\uart_z.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\uart_z.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\uart_z.o: .\Start\stm32f10x.h
 .\objects\uart_z.o: .\Start\core_cm3.h
-.\objects\uart_z.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\uart_z.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\uart_z.o: .\Start\system_stm32f10x.h
 .\objects\uart_z.o: .\User\stm32f10x_conf.h
 .\objects\uart_z.o: .\Library\stm32f10x_adc.h

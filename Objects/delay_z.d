@@ -1,8 +1,8 @@
 .\objects\delay_z.o: Jia\My\Delay\Delay_z.c
-.\objects\delay_z.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\delay_z.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\delay_z.o: .\Start\stm32f10x.h
 .\objects\delay_z.o: .\Start\core_cm3.h
-.\objects\delay_z.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\delay_z.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\delay_z.o: .\Start\system_stm32f10x.h
 .\objects\delay_z.o: .\User\stm32f10x_conf.h
 .\objects\delay_z.o: .\Library\stm32f10x_adc.h

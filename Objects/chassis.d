@@ -1,7 +1,7 @@
 .\objects\chassis.o: Wj\app\Chassis.c
 .\objects\chassis.o: .\Start\stm32f10x.h
 .\objects\chassis.o: .\Start\core_cm3.h
-.\objects\chassis.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\chassis.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\chassis.o: .\Start\system_stm32f10x.h
 .\objects\chassis.o: .\User\stm32f10x_conf.h
 .\objects\chassis.o: .\Library\stm32f10x_adc.h
@@ -35,7 +35,7 @@
 .\objects\chassis.o: .\Jia\My\OLED\OLED_Demo.h
 .\objects\chassis.o: .\Jia\My\UART\UART_API_z.h
 .\objects\chassis.o: .\Jia\My\UART\UART_Func_z.h
-.\objects\chassis.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\chassis.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\chassis.o: .\Jia\My\UART\UART_Def_z.h
 .\objects\chassis.o: .\Jia\My\UART\UART_Demo_z.h
 .\objects\chassis.o: .\Jia\My\Delay\Delay_API_z.h
@@ -47,9 +47,8 @@
 .\objects\chassis.o: .\Jia\My\Slave1/PS2ToSlave1_Demo.h
 .\objects\chassis.o: .\Jia\My\ATK_IMU901/ATK_IMU901_API.h
 .\objects\chassis.o: .\Jia\My\MPU6050/MPU6050_API.h
-.\objects\chassis.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\chassis.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\chassis.o: Wj\app\PID.h
 .\objects\chassis.o: .\Wj\bsp\bsp_motorTIM.h
 .\objects\chassis.o: .\Wj\bsp\bsp_ChassisEncoder.h
 .\objects\chassis.o: .\System\Delay.h
-.\objects\chassis.o: Wj\app\NAVI.h

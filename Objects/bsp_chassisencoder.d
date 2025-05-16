@@ -1,7 +1,7 @@
 .\objects\bsp_chassisencoder.o: Wj\bsp\bsp_ChassisEncoder.c
 .\objects\bsp_chassisencoder.o: .\Start\stm32f10x.h
 .\objects\bsp_chassisencoder.o: .\Start\core_cm3.h
-.\objects\bsp_chassisencoder.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_chassisencoder.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\bsp_chassisencoder.o: .\Start\system_stm32f10x.h
 .\objects\bsp_chassisencoder.o: .\User\stm32f10x_conf.h
 .\objects\bsp_chassisencoder.o: .\Library\stm32f10x_adc.h

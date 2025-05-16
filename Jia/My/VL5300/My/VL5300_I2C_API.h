@@ -1,19 +1,20 @@
 /**
- * @file		MPU6050_I2C_API.h
- * @brief		MPU6050的I2C软件通信函数封装对外接口(API)头文件
- * @platform	keil5平台STM32F103RCT6型号单片机
- * @mainpage	机器人学院十期基础赛第三组R1夹球车主单片机(型号F103RCT6)
+ * @file		VL5300_I2C.h
+ * @brief		VL5300的I2C软件通信函数封装头文件
+ * @platform	keil5平台STM32F103C8T6型号单片机
+ * @mainpage	机器人学院十期基础赛第三组R1夹球车从2单片机(型号F103C8T6)
  * @author		桑叁
- * @date		2025年4月13日
+ * @date		2025年4月15日
  */
 
 
-#ifndef __MPU6050_I2C_API_h
-#define __MPU6050_I2C_API_h
+#ifndef __VL5300_I2C_h
+#define __VL5300_I2C_h
 
 
 #include <stdint.h>
 #include "stm32f10x.h"
+#include "Delay_API_z.h"
 
 
 /* ————————————————————————————————————*/
@@ -33,9 +34,7 @@
 
 static inline void I2C_Delay(void)
 {
-	// 是否需要通信延时取决与硬件的通信能力和电路的上拉能力
-	// 经验证后，在电路上拉能力足够时，1.15MHz的通信时钟频率可以正常通信
-	// TODO
+	Delay_us(2);
 }
 
 static inline void I2C_SCL_Write(uint8_t x)
@@ -145,11 +144,6 @@ static void I2C_SendByte(uint8_t Byte)
 	I2C_WaitAck();					/* 等待从机应答 */
 }
 
-/**
- * @brief       读取一个字节
- * @param       ACK 是否产生应答位，产生为1，不产生为0
- * @retval      无
- */
 static uint8_t I2C_ReadByte(uint8_t ACK)
 {
 	uint8_t Byte = 0;
@@ -181,6 +175,54 @@ static uint8_t I2C_ReadByte(uint8_t ACK)
 	}
 
 	return Byte;
+}
+
+static void I2C_ConsecutiveRead(uint8_t I2C_Address,uint8_t RegisterAddress, uint8_t* DataPoint, uint16_t Length)
+{
+	I2C_Start();							/* 起始信号 */
+
+	I2C_SendByte(I2C_Address);				/* 发送I2C通讯写地址 */
+
+	I2C_SendByte(RegisterAddress);			/* 发送寄存器地址 */
+
+	I2C_Start();							/* 起始信号 */
+
+	I2C_SendByte(I2C_Address | 0x01);	/* 发送I2C通讯读地址 */
+
+	while (Length)							/* 循环接收数据 */
+	{
+		*DataPoint = I2C_ReadByte((Length > 1) ? 1 : 0);
+		Length--;
+		DataPoint++;
+	}
+
+	I2C_Stop();								/* 停止信号 */
+}
+
+static void I2C_ConsecutiveSend(uint8_t I2C_Address, uint8_t RegisterAddress, uint8_t* DataPoint, uint16_t Length)
+{
+	I2C_Start();							/* 起始信号 */
+
+	I2C_SendByte(I2C_Address);				/* 发送IIC通讯地址 */
+
+	I2C_SendByte(RegisterAddress);          /* 发送寄存器地址 */
+
+	for (uint16_t i = 0; i < Length; i++)	/* 循环发送数据 */
+	{
+		I2C_SendByte(DataPoint[i]);
+	}
+
+	I2C_Stop();								/* 停止信号 */
+}
+
+static void I2C_SingleRead(uint8_t I2C_Address, uint8_t RegisterAddress, uint8_t* Data)
+{
+	I2C_ConsecutiveRead(I2C_Address, RegisterAddress, Data, 1);
+}
+
+static void I2C_SingleSend(uint8_t I2C_Address, uint8_t RegisterAddress, uint8_t Data)
+{
+	I2C_ConsecutiveSend(I2C_Address, RegisterAddress, &Data, 1);
 }
 
 static inline void MyI2C_Init(void)

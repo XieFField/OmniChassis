@@ -1,7 +1,7 @@
 .\objects\ps2_demo.o: Jia\My\PS2\PS2_Demo.c
 .\objects\ps2_demo.o: .\Jia\My\OLED\OLED_API.h
 .\objects\ps2_demo.o: .\Jia\My\OLED\OLED_Func.h
-.\objects\ps2_demo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\ps2_demo.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\ps2_demo.o: .\Jia\My\OLED\OLED_Demo.h
 .\objects\ps2_demo.o: Jia\My\PS2\PS2_API.h
 .\objects\ps2_demo.o: Jia\My\PS2\PS2_Demo.h

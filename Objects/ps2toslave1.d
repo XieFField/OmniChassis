@@ -1,8 +1,8 @@
 .\objects\ps2toslave1.o: Jia\My\Slave1\PS2ToSlave1.c
-.\objects\ps2toslave1.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\ps2toslave1.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\ps2toslave1.o: .\Start\stm32f10x.h
 .\objects\ps2toslave1.o: .\Start\core_cm3.h
-.\objects\ps2toslave1.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\ps2toslave1.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\ps2toslave1.o: .\Start\system_stm32f10x.h
 .\objects\ps2toslave1.o: .\User\stm32f10x_conf.h
 .\objects\ps2toslave1.o: .\Library\stm32f10x_adc.h
