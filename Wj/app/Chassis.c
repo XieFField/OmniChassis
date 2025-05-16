@@ -443,31 +443,31 @@ void Chassis_FSM(void)
 
 void Chassis_FSM_TEST(void)
 {
-    Laser_Data = VL5300_GetDataSetPoint();
+//    Laser_Data = VL5300_GetDataSetPoint();
     chassis_ctrl = STOP_WAIT;
     Delay_s(3);
     chassis_ctrl = Forward_PATH;
-    if(Laser_Data->Front.Correction_TOF <= 420)
+    if(MedianFilter1() <= 420)
     {
         chassis_ctrl = STOP_WAIT;
         Delay_ms(1000);
         chassis_ctrl = Forward_PATH;
-        if(Laser_Data->Front.Correction_TOF <= 50)
+        if(MedianFilter1() <= 50)
         {
             chassis_ctrl = STOP_WAIT;
             Delay_ms(500);
             chassis_ctrl = Left_PATH;
-            if(Laser_Data->Left.Correction_TOF <= 50)
+            if(MedianFilter2() <= 50)
             {
                 chassis_ctrl = STOP_WAIT;
                 Delay_ms(1000);
                 chassis_ctrl = Right_PATH;
-                if(Laser_Data->Right.Correction_TOF <= 1050)
+                if(MedianFilter3() <= 1050)
                 {
                     chassis_ctrl = STOP_WAIT;
                     Delay_ms(1000);
                     chassis_ctrl = Backward_PATH;
-                    if(Laser_Data->Front.Correction_TOF <= 2120)
+                    if(MedianFilter1() <= 2120)
                     {
                         chassis_ctrl = STOP_WAIT;
                     }
