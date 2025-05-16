@@ -19,6 +19,7 @@
 
 ChassisMotor_t          ChassisMotor;        //电机参数结构体
 ChassisMotor_t* Data;
+VL5300_DataSetTypeDef *Laser_Data;
 pid_type_def Chassis_PID[5];
 int myabs(int a);
 ChassisMotor_t* Chassis_ReadData(void);
@@ -116,7 +117,6 @@ void Chassis_GPIOInit(ChassisMotor_t *init)
 
 void Chassis_Init(void)
 {  
-    ChassisMotor.ctrl_mode = Center;
     ChassisMotor.maxVx = 79000.2f ;
     ChassisMotor.maxVy = 79000.2f ;
     
@@ -147,9 +147,10 @@ void Chassis_Init(void)
     ChassisPWM_Init();
     bsp_ChassisEncoder_Init();
     TIM6_Init(T);
+    VL5300_Init();
     Chassis_GPIOInit(&ChassisMotor);
     PS2_Init();
-    PS2ToSlave1_Init();
+//    PS2ToSlave1_Init();
 }
 
 /**************************************
@@ -437,14 +438,69 @@ void Chassis_FSM(void)
 
 void Chassis_FSM_TEST(void)
 {
-
+    Laser_Data = VL5300_GetDataSetPoint();
+    chassis_ctrl = STOP_WAIT;
+    Delay_s(3);
+    chassis_ctrl = Forward_PATH;
+    if(Laser_Data->Front.Correction_TOF <= 420)
+    {
+        chassis_ctrl = STOP_WAIT;
+        Delay_ms(1000);
+        chassis_ctrl = Forward_PATH;
+        if(Laser_Data->Front.Correction_TOF <= 50)
+        {
+            chassis_ctrl = STOP_WAIT;
+            Delay_ms(500);
+            chassis_ctrl = Left_PATH;
+            if(Laser_Data->Left.Correction_TOF <= 50)
+            {
+                chassis_ctrl = STOP_WAIT;
+                Delay_ms(1000);
+                chassis_ctrl = Right_PATH;
+                if(Laser_Data->Right.Correction_TOF <= 1050)
+                {
+                    chassis_ctrl = Backward_PATH;
+                    if(Laser_Data->Front.Correction_TOF <= 2120)
+                    {
+                        chassis_ctrl = STOP_WAIT;
+                    }
+                }
+            }
+        }
+    }
 }
 
 void Chassis_Task(void)
 {
     if(chassis_ctrl == STOP_WAIT)
     {
-        
+        ChassisMotor.chassisVx = 0;
+        ChassisMotor.chassisVy = 0;
+    }
+    else if(chassis_ctrl == Forward_PATH)
+    {
+        ChassisMotor.chassisVx = 0;
+        ChassisMotor.chassisVy = -ChassisMotor.maxVy;
+    }
+    else if(chassis_ctrl == Left_PATH)
+    {
+        ChassisMotor.chassisVx = -ChassisMotor.maxVx;
+        ChassisMotor.chassisVy = 0;
+    }
+    else if(chassis_ctrl == Right_PATH)
+    {
+         ChassisMotor.chassisVx = ChassisMotor.maxVx;
+        ChassisMotor.chassisVy = 0;
+    }
+    else if(chassis_ctrl == Backward_PATH)
+    {
+        ChassisMotor.chassisVx = 0;
+        ChassisMotor.chassisVy = ChassisMotor.maxVy;
+    }
+    else
+    {
+        ChassisMotor.chassisVx = 0;
+        ChassisMotor.chassisVy = 0;
     }
 }
 
@@ -465,6 +521,7 @@ void TIM6_IRQHandler(void)
     if(TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)
     {
         CNTmode++;
+        Chassis_Task();
         if(ChassisMotor.chassisVx != 0)
         {
             //加速

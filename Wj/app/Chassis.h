@@ -4,6 +4,10 @@
 #include "stm32f10x.h"                  // Device header
 #include "Incl_z.h"
 
+#define START_TO_LIGHT_DISTANCE      1550//单位为毫米
+#define LIGHT_TO_ENDLINE_DISTANCE    410//单位为毫米
+#define ENDLINE_TO_FINAL             1020//单位为毫米
+
 /*       结 构 体 定 义      */
 
 typedef struct
@@ -125,9 +129,6 @@ typedef enum PI_E
 #define NotConnect  0
 // 摇杆模拟量模式时是2，摇杆数字量模式时是1，未连接时是0
 
-#define Left    1
-#define Right   2
-#define Center  0
 
 #define Sensor_ON   1
 #define Sensor_OFF  0
