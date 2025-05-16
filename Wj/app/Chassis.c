@@ -7,6 +7,7 @@
  */
 #include "stm32f10x.h"                  // Device header
 #include "Chassis.h"
+#include "Servo.h"
 #include "math.h"
 #include "PID.h"
 #include "bsp_motorTIM.h"
@@ -425,17 +426,26 @@ int myabs(int a)
 
 int textnum = 0;
 
+//×´Ì¬»ú
+
+FSM_E chassis_ctrl;
+
 void Chassis_FSM(void)
 {
     
 }
 
+void Chassis_FSM_TEST(void)
+{
+
+}
+
 void Chassis_Task(void)
 {
-    //  Data = Chassis_ReadData();
-    //  printf("d:%f, %f, %f, %d\n", Data->motor.motor_fdb[0].speed_fdb, Data->motor.motor_set[0].speed_set, Data->motor.motor_set[0].pid_speed, 
-    //                               Data->motor.motor_set[0].current_set);
-
+    if(chassis_ctrl == STOP_WAIT)
+    {
+        
+    }
 }
 
 
