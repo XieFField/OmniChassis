@@ -24,10 +24,15 @@ pid_type_def Chassis_PID[5];
 int myabs(int a);
 ChassisMotor_t* Chassis_ReadData(void);
 
-//位置式
-float Motor_Kp[5] = {2.9,  2.9,  1.5,      2,   1};
-float Motor_Ki[5] = {0.15, 0.15, 0.15,     0.1, 0.2};
-float Motor_Kd[5] = {0.1,  0.1,  0.1,     0.1, 0.5};
+//位置式 R1
+// float Motor_Kp[5] = {2.9,  2.9,  1.5,      2,   1};
+// float Motor_Ki[5] = {0.15, 0.15, 0.15,     0.1, 0.2};
+// float Motor_Kd[5] = {0.1,  0.1,  0.1,     0.1, 0.5};
+
+//位置式 R2
+float Motor_Kp[5] = {2.5,  2.4,  2.9,     1.9,   1};
+float Motor_Ki[5] = {0.9,  0.1,  0.1,     0.1, 0.2};
+float Motor_Kd[5] = {0.5,  0.1,  0.1,     0.1, 0.5};
 
 //比大小函数
 float maxNum(float a, float b)
@@ -459,6 +464,8 @@ void Chassis_FSM_TEST(void)
                 chassis_ctrl = Right_PATH;
                 if(Laser_Data->Right.Correction_TOF <= 1050)
                 {
+                    chassis_ctrl = STOP_WAIT;
+                    Delay_ms(1000);
                     chassis_ctrl = Backward_PATH;
                     if(Laser_Data->Front.Correction_TOF <= 2120)
                     {

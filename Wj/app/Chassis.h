@@ -149,5 +149,6 @@ void CurrentCalc(ChassisMotor_t *set);
 void Motor_Turn(ChassisMotor_t *turn);
 
 void Chassis_Task(void);                            //任务集成模块
+void Chassis_FSM_TEST(void);
 
 #endif

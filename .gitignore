@@ -1,1 +1,12 @@
+<<<<<<< HEAD
 .vscode/c_cpp_properties.json
+=======
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.vs
+/.gitignore
+/Objects
+/project.uvguix.ayou
+>>>>>>> 42e0e65b48dbfeff6029b79299c13d3b03fe90bb
