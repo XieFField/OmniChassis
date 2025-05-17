@@ -16,7 +16,7 @@
 typedef struct
 {
     // 校正的tof
-    uint16_t Correction_TOF;
+    int16_t Correction_TOF;
     // 置信度
     uint8_t Confidence;
     // 积分次数

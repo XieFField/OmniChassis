@@ -122,4 +122,3 @@ void MorCode_Read(MorseCode_T * read)
         read->code[2] = 0;
     }
 }
-
