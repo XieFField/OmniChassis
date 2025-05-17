@@ -345,7 +345,7 @@ VI530x_Status VI530x_Get_Measure_Data(uint8_t VL5300_I2C_Address,VI530x_MEASURE_
 	VI530x_Status ret = VI530x_OK;
 	uint8_t Interrupt_status = 0;
 	uint8_t data_buff[32] = {0};
-	uint16_t time_out_cnt = 3000;
+	uint16_t time_out_cnt = 10;
 	//参数
 	int16_t raw_tof = 0;
 	int16_t correction_tof = 0;	

@@ -42,7 +42,7 @@
 #define XSH_2_L			(GPIO_WriteBit(GPIOx_XSH_2, GPIO_Pinx_XSH_2, (BitAction)0))
 
 
-#define VL5300_3_I2C            0xD8
+#define VL5300_3_I2C            0x70
 
 #define RCC_XSH_3				RCC_APB2Periph_GPIOA		    // XSH_3
 #define GPIOx_XSH_3				GPIOA
@@ -123,25 +123,25 @@ static void VL5300_2_HW_Init(void)
     VI530x_Cali_Data.VI530x_Interrupt_Mode_Status = 0x00;
 
     /* 初始化VI5300 */
-    ret |= VI530x_Chip_Init(VL5300_3_I2C);
+    ret |= VI530x_Chip_Init(VL5300_2_I2C);
 
     /* 写入VI5300固件 */
-    ret |= VI530x_Download_Firmware(VL5300_3_I2C, (uint8_t*)VI5300_M31_firmware_buff, FirmwareSize());
+    ret |= VI530x_Download_Firmware(VL5300_2_I2C, (uint8_t*)VI5300_M31_firmware_buff, FirmwareSize());
 
     /* 配置标定值 */
-    ret |= VI530x_Set_Californiation_Data(VL5300_3_I2C, VI530x_Cali_Data.VI530x_Calibration_Offset);
+    ret |= VI530x_Set_Californiation_Data(VL5300_2_I2C, VI530x_Cali_Data.VI530x_Calibration_Offset);
 
     /* 开启温度校准, 0x00:关，0x01:开 */
-    ret |= VI530x_Set_Sys_Temperature_Enable(VL5300_3_I2C, 0x01);
+    ret |= VI530x_Set_Sys_Temperature_Enable(VL5300_2_I2C, 0x01);
 
     /* 配置帧率，积分次数 */
-    ret |= VI530x_Set_Integralcounts_Frame(VL5300_3_I2C, 30, 131072);
+    ret |= VI530x_Set_Integralcounts_Frame(VL5300_2_I2C, 30, 131072);
 
     /* 配置数据读取模式 */
 #if CONTINUOUS_READ == 1
-    ret |= VI530x_Start_Continue_Ranging_Cmd(VL5300_3_I2C); /* 连续模式 */
+    ret |= VI530x_Start_Continue_Ranging_Cmd(VL5300_2_I2C); /* 连续模式 */
 #else
-    ret = VI530x_Start_Single_Ranging_Cmd(VL5300_3_I2C);    /* 单次模式 */
+    ret = VI530x_Start_Single_Ranging_Cmd(VL5300_2_I2C);    /* 单次模式 */
 #endif
 
     if (ret)

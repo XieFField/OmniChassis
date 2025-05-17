@@ -11,7 +11,7 @@
 
 
  // 定义采样窗口大小（建议奇数，如5或7）
-#define MEDIAN_FILTER_WINDOW_SIZE 7
+#define MEDIAN_FILTER_WINDOW_SIZE 3
 
 
 uint16_t MedianFilter1(void) 
