@@ -13,3 +13,4 @@
 /project.uvoptx
 /Objects/bsp_chassisencoder.o
 /Listings/project.map
+/Listings/startup_stm32f10x_hd.lst
