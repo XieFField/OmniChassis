@@ -88,12 +88,19 @@ typedef enum FSM_E
 
 typedef enum SERVO_E
 {
-    Servo1_OPEN,        //¶æ»ú×´Ì¬
-    Servo1_CLOSE,
-    Servo2_OPEN,
-    Servo2_CLOSE,
+    Servo1_OPEN_S,        //¶æ»ú×´Ì¬
+    Servo1_CLOSE_S,
+    Servo2_OPEN_S,
+    Servo2_CLOSE_S,
     ALL_CLOSE,
+    Servo_NOON,
 }SERVO_E;
+
+typedef enum PATH_E
+{
+    THE_PATH_ONE,
+    THE_PATH_TWO,
+}PATH_E;
 
 typedef enum PI_E
 {

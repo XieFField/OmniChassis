@@ -72,4 +72,53 @@ void Servo_Switch(uint8_t servo_num, uint8_t state)
     Set_Servo_Angle(servo_num, state ? 180 : 0);
 }
 
+void MorCode_Init(void)
+{
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB || RCC_APB2Periph_GPIOA, ENABLE);
 
+    GPIO_InitTypeDef PWM_InitStructure;
+    PWM_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    PWM_InitStructure.GPIO_Pin = GPIO_Pin_11;
+    PWM_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    
+    GPIO_Init(GPIOA, &PWM_InitStructure);
+    
+    PWM_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    PWM_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11;
+    PWM_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    
+    GPIO_Init(GPIOB, &PWM_InitStructure);
+}
+
+
+
+
+void MorCode_Read(MorseCode_T * read)
+{
+    if(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_10) == SET)
+    {
+        read->code[0] = 1;
+    }
+    else
+    {
+        read->code[0] = 0;
+    }
+
+    if(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_11) == SET)
+    {
+        read->code[1] = 1;
+    }
+    else
+    {
+        read->code[1] = 0;
+    }
+
+    if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_11) == SET)
+    {
+        read->code[2] = 1;
+    }
+    else
+    {
+        read->code[2] = 0;
+    }
+}
