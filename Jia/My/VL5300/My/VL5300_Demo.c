@@ -26,17 +26,17 @@ void VL5300_Demo(void)
 
 		Delay_ms(50);
 
-		OLED_Show_u32(1, 1, (uint16_t)VL5300_DataSet->Front.Correction_TOF, 4);
-		OLED_Show_u32(1, 6, (uint16_t)VL5300_DataSet->Front.Confidence, 4);
-		OLED_Show_u32(1, 11, (uint16_t)VL5300_DataSet->Front.Intecounts, 4);
+		OLED_Show_u32(1, 1, (uint8_t)VL5300_DataSet->Front.Correction_TOF, 4);
+		OLED_Show_u32(1, 6, (uint8_t)VL5300_DataSet->Front.Confidence, 4);
+		OLED_Show_u32(1, 11, (uint8_t)VL5300_DataSet->Front.Intecounts, 4);
 
-		OLED_Show_u32(2, 1, (uint16_t)VL5300_DataSet->Left.Correction_TOF, 4);
-		OLED_Show_u32(2, 6, (uint16_t)VL5300_DataSet->Left.Confidence, 4);
-		OLED_Show_u32(2, 11, (uint16_t)VL5300_DataSet->Left.Intecounts, 4);
+		OLED_Show_u32(2, 1, (uint8_t)VL5300_DataSet->Left.Correction_TOF, 4);
+		OLED_Show_u32(2, 6, (uint8_t)VL5300_DataSet->Left.Confidence, 4);
+		OLED_Show_u32(2, 11, (uint8_t)VL5300_DataSet->Left.Intecounts, 4);
 
-		OLED_Show_u32(3, 1, (uint16_t)VL5300_DataSet->Right.Correction_TOF, 4);
-		OLED_Show_u32(3, 6, (uint16_t)VL5300_DataSet->Right.Confidence, 4);
-		OLED_Show_u32(3, 11, (uint16_t)VL5300_DataSet->Right.Intecounts, 4);
+		OLED_Show_u32(3, 1, (uint8_t)VL5300_DataSet->Right.Correction_TOF, 4);
+		OLED_Show_u32(3, 6, (uint8_t)VL5300_DataSet->Right.Confidence, 4);
+		OLED_Show_u32(3, 11, (uint8_t)VL5300_DataSet->Right.Intecounts, 4);
 
 
 		Delay_ms(50);

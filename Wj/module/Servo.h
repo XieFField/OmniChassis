@@ -10,11 +10,6 @@
 #define SERVO_MIN  500    // 0.5ms = 0°
 #define SERVO_MAX  2500   // 2.5ms = 180°
 
-typedef struct 
-{
-    int code[3];
-}MorseCode_T;
-
 /*      函数声明        */
 
 void TIM5_PWM_Init(void);
@@ -28,11 +23,8 @@ void Set_Servo_Angle(uint8_t servo_num, uint8_t angle);
 // state: 0-关闭(0°), 1-打开(180°)
 void Servo_Switch(uint8_t servo_num, uint8_t state);
 
-
-void MorCode_Read(MorseCode_T * read);
-
-#define Servo1_Open Servo_Switch(1, 100)
-#define Servo2_Open Servo_Switch(2, 100)
+#define Servo1_Open Servo_Switch(1, 180)
+#define Servo2_Open Servo_Switch(2, 180)
 
 #define Servo1_Close Servo_Switch(1, 0)
 #define Servo2_Close Servo_Switch(2, 0)

@@ -281,7 +281,7 @@ void TIM6_Init(uint8_t arr)
     NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
     NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStruct);
-    TIM_ClearITPendingBit(TIM6,TIM_IT_Update);
+
     // Æô¶¯TIM6
     TIM_Cmd(TIM6, ENABLE);
 }
