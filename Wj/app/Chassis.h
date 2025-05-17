@@ -53,6 +53,10 @@ typedef struct
 
     float anglespeed_set;
     float pid_anglespeed;
+
+    float positionX;
+    float positionY;
+
     float maxRpm_Left[4];
     float maxRpm_Right[4];
     float maxVx;

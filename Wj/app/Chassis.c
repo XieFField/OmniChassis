@@ -162,6 +162,8 @@ void Chassis_Init(void)
     ChassisMotor.chassisVx_calc = 0;    //速度规划的
     ChassisMotor.chassisVy_calc = 0;
 
+    ChassisMotor.positionX = 0;
+    ChassisMotor.positionY = 0;
     //初始化，舵机状态归零
     Servo1_Close;
     Servo2_Close;
@@ -596,8 +598,6 @@ void Chassis_FSM(void)
             while(time  <= 920 + 230){ Chassis_Task();}
             time = 0;
         }
-        
-        
     }
 }
 
@@ -691,6 +691,25 @@ void Chassis_Task(void)
 }
 
 /**************************************************************************
+功能：里程计
+参数：void
+返回值: void
+说明：用两个轮子计算出底盘走过的路程，因为没有yaw轴运动，所以可以用此方案
+     x = (v1 + v2) / 2 / (sqrt(2)) *dt
+     y = (v1 - v2) / 2 / (sqrt(2)) *dt
+**************************************************************************/
+void Position(void)
+{
+    float motorliner_1, motorliner_2;       //轮子线速度
+                                            //换算成线速度
+    motorliner_1 = ChassisMotor.motor.motor_fdb[0].speed_fdb * 2 * PI / 60;
+    motorliner_2 = ChassisMotor.motor.motor_fdb[1].speed_fdb * 2 * PI / 60;
+
+    ChassisMotor.positionX += (motorliner_1 + motorliner_2) / (2 * 1.41) * dt;
+    ChassisMotor.positionY += (motorliner_1 - motorliner_2) / (2 * 1.41) * dt;
+}
+
+/**************************************************************************
 功能：速度规划
 参数：void
 返回值: void
@@ -776,6 +795,7 @@ void TIM6_IRQHandler(void)
         cout +=1;
         
         Chassis_fdb(&ChassisMotor);
+        Position();
         /*启动100ms后再进入PID，目的是保证初始化前不进入该函数，
         有更好的解决方法，即每段Init都加上判断，若未初始化返回Init_Falut标志位
         */
