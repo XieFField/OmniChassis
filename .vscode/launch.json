@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "f:/STM32_Project/Team3_R1/module",
-      "program": "f:/STM32_Project/Team3_R1/module/build/Debug/outDebug",
+      "cwd": "f:/MyProjectFlies/STM32_Project/FSM/OmniChassis/Wj/app",
+      "program": "f:/MyProjectFlies/STM32_Project/FSM/OmniChassis/Wj/app/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
